@@ -1,0 +1,14 @@
+.header
+  .header__top
+    MOVIE APP
+    .header__top__regi
+      - if user_signed_in?
+        .item
+          -# - @user.nickname
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'log_btn'
+      - else
+        .item
+          = link_to "ログイン", new_user_session_path, class: 'log_btn'
+        .item
+          = link_to "新規登録", new_user_registration_path, class: 'log_btn'
+        
