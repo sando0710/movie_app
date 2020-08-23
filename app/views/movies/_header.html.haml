@@ -4,7 +4,7 @@
     .header__top__regi
       - if user_signed_in?
         .item
-          -# - @user.nickname
+          = current_user.nickname
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'log_btn'
       - else
         .item

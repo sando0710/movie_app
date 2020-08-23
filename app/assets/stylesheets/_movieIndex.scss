@@ -11,14 +11,12 @@
       justify-content: space-around;
       flex-wrap: wrap;
       margin: 20px;
-
       &__name{
         display: flex;
         &__ti{
           font-weight: bold;
         }
         &__title{
-
         }
       }
       &__nick{
@@ -27,7 +25,6 @@
           font-weight: bold;
         }
         &__user{
-
         }
       }
     }
