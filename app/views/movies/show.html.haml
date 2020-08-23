@@ -1,0 +1,10 @@
+= render "head"
+.movie-show
+  movie編集
+  .movie-show__title
+    = @movie.title
+  .movie-show__image
+    = image_tag @movie.image.to_s, size: "300x200"
+  .movie-show__body
+    = @movie.body
+    = @user.nickname
