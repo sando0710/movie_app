@@ -1,1 +1,18 @@
 = render "header"
+
+.wrapper
+  .wrapper__movies
+    .wrapper__movies__box
+      - @movies.each do |movie|
+        = link_to movie_path(movie), class: "item-link" do
+          = image_tag movie.image.to_s, size: "300x200"
+          .wrapper__movies__box__name
+            .wrapper__movies__box__name__ti
+              タイトル :&nbsp;
+            .wrapper__movies__box__name__title
+              = movie.title
+          .wrapper__movies__box__nick
+            .wrapper__movies__box__nick__ti
+              投稿者 :&nbsp;
+            .wrapper__movies__box__nick__user
+              = movie.user.nickname
