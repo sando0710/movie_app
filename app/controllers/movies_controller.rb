@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all.order("id DESC")
-    
+
   end
 
   def new
@@ -13,7 +13,9 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find_by(id: params[:id])
     @user = User.find_by(id: @movie.user_id)
-  # binding.pry
+
+    @comment = Comment.new
+    @comments = @movie.comments.includes(:user)
 
   end
 
