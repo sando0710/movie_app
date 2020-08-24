@@ -6,15 +6,14 @@
         .item
           = current_user.nickname
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'log_btn'
+        .postMovie
+          = link_to new_movie_path, class: 'log_btn' do
+            .postMovie__text
+              投稿
+            .postMovie__icon
+              = icon('fas', 'film', class: "icon")
       - else
         .item
           = link_to "ログイン", new_user_session_path, class: 'log_btn'
         .item
           = link_to "新規登録", new_user_registration_path, class: 'log_btn'
-
-.postMovie
-  = link_to new_movie_path, class: 'log_btn' do
-    .postMovie__text
-      投稿
-    .postMovie__icon
-      = icon('fas', 'film', class: "icon")
