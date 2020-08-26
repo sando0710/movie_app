@@ -1,10 +1,10 @@
 = render 'head'
 
 .bar
-  MOVIE　投稿
+  雑談ネタ 投稿
 .wrap
   = form_with model: @movie, url: movies_path, class: 'wrap__new-movie', method: :post, local: true do |f|
-    = render "devise/shared/error_messages", resource: @movie
+    = render "devise/shared/error_messages", resource: @movie    
     .wrap__new-movie__field
       = f.label :title, "タイトル", class: "wrap__new-movie__field__label"
       %br/
@@ -14,7 +14,7 @@
       %br/
       = f.text_area :body, autofocus: true, autocomplete: "body", class: "wrap__new-movie__field__window-1"
     .wrap__new-movie__field
-      = f.label :image, "映画のジャケット写真", class: "wrap__new-movie__field__label-image"
+      = f.label :image, "ネタ写真", class: "wrap__new-movie__field__label-image"
       %label.label
         = icon('far', 'file-image', class: "icon-image" )
         = f.file_field :image, autocomplete: "image", class: "wrap__new-movie__field__window-image"
