@@ -1,5 +1,6 @@
-.header
-  .header__top 
+.header  
+  .header__top
+    = image_tag "zatu.png", class: "top-img", size: "300x200";
     .header__top__regi
       - if user_signed_in?
         .item
@@ -16,8 +17,8 @@
           = link_to "ログイン", new_user_session_path, class: 'log_btn'
         .item
           = link_to "新規登録", new_user_registration_path, class: 'log_btn'
-.cat
-  = link_to "カテゴリー", "#", class: "cat__btn"
+  .cat
+    = link_to "カテゴリー", "#", class: "cat__btn"
 
 
 
@@ -27,8 +28,8 @@
 
 
 
-
-
-.c
-  - @parents.each do |parent|
-    = parent.name
+-#
+-#
+-# .c
+-#   - @parents.each do |parent|
+-#     = parent.name
