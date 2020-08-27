@@ -1,16 +1,21 @@
 = render 'head'
 
 .bar
-  雑談ネタ 投稿
+  雑談ネタ
 .wrap
   = form_with model: @movie, url: movies_path, class: 'wrap__new-movie', method: :post, local: true do |f|
-    = render "devise/shared/error_messages", resource: @movie    
+    = render "devise/shared/error_messages", resource: @movie
+    .wrap__new-movie__field
+      = f.label 'カテゴリー', class: "wrap__new-movie__field__label"
+      %br/
+      = f.select :category, @category_parent_array, {}, {class: "wrap__new-movie__field__window", id: 'parent_category'}
+
     .wrap__new-movie__field
       = f.label :title, "タイトル", class: "wrap__new-movie__field__label"
       %br/
       = f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "例）ダイハード", class: "wrap__new-movie__field__window"
     .wrap__new-movie__field
-      = f.label :body, "映画の詳細", class: "wrap__new-movie__field__label"
+      = f.label :body, "最初のひとこと", class: "wrap__new-movie__field__label"
       %br/
       = f.text_area :body, autofocus: true, autocomplete: "body", class: "wrap__new-movie__field__window-1"
     .wrap__new-movie__field
@@ -19,4 +24,4 @@
         = icon('far', 'file-image', class: "icon-image" )
         = f.file_field :image, autocomplete: "image", class: "wrap__new-movie__field__window-image"
     .wrap__new-movie__actions
-      = f.submit  "次へ", class: "wrap__new-movie__actions__btn"
+      = f.submit  "投稿", class: "wrap__new-movie__actions__btn"
