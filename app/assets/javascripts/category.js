@@ -5,19 +5,38 @@ $(function(){
     return html;
   }
   // 子カテゴリーの表示作成
-  function appendChidrenBox(insertHTML){
-    var childSelectHtml = '';
-    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
-                            <option value="---" data-category="---">---</option>
-                            ${insertHTML}
-                          <select>
-                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                        </div>
-                      </div>`;
-    $('.listing-product-detail__category').append(childSelectHtml);
-  }
+  // function appendChidrenBox(insertHTML){
+  //   var childSelectHtml = '';
+  //   childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
+  //                       <div class='listing-select-wrapper__box'>
+  //                         <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
+  //                           <option value="---" data-category="---">---</option>
+  //                           ${insertHTML}
+  //                         <select>
+  //                         <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
+  //                       </div>
+  //                     </div>`;
+  //   $('.listing-product-detail__category').append(childSelectHtml);
+  // }
+  $('select#parent_category').change(function() {
+    console.log(1);
+    //選択したvalue値を変数に格納
+    var val = $(this).val();
+    
+    switch (val) {
+      case "料理":
+        var select_cook = `<div class='select_box'>
+                                 <p>小カテゴリー</p>
+                                 <select class="wrap__new-movie__field__window" id="child_category" name="mini_category_id">
+                                   <option value="1" >和</option> 
+                                   <option value="2" >洋</option> 
+                                   <option value="3" >中</option> 
+                                 <select>
+                           </div>`;
+        $('.category').append(select_cook);
+      break;
+      }
+  });
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';

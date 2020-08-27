@@ -5,11 +5,10 @@
 .wrap
   = form_with model: @movie, url: movies_path, class: 'wrap__new-movie', method: :post, local: true do |f|
     = render "devise/shared/error_messages", resource: @movie
-    .wrap__new-movie__field
-      = f.label 'カテゴリー', class: "wrap__new-movie__field__label"
+    .wrap__new-movie__field.category
+      = f.label 'カテゴリー', class: "wrap__new-movie__field__label "
       %br/
       = f.select :category, @category_parent_array, {}, {class: "wrap__new-movie__field__window", id: 'parent_category'}
-
     .wrap__new-movie__field
       = f.label :title, "タイトル", class: "wrap__new-movie__field__label"
       %br/
