@@ -69,8 +69,12 @@ $(function(){
       $(this).next('.slide').slideToggle();
         
     }
-);
-
+  );
+  $('.s_cook').click(    //ここはホバーよりクリックの方が良いと思います。
+    function() {
+        
+    }
+  );
 
 
 

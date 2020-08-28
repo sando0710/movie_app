@@ -37,4 +37,8 @@
 // ここ追加しました20200828
 .slide{     
   display:none;
+  position: absolute;
+  z-index: 1;
+  background-color: azure;
+  font-size: 15px;
 }
