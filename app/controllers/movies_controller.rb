@@ -10,15 +10,15 @@ class MoviesController < ApplicationController
   def new
     @movie = Movie.new
 
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    # @category_parent_array = ["---"]
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
+  # def get_category_children
+  #   @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # end
 
   def show
     @movie = Movie.find_by(id: params[:id])
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
 
 private
   def movie_params
-    params.require(:movie).permit(:title, :body, :image).merge(user_id: current_user.id)
+    params.require(:movie).permit(:title, :body, :image ,:category,:sub_category).merge(user_id: current_user.id)    #ここ追加しました0829
   end
 
 end

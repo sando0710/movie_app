@@ -1,0 +1,40 @@
+<%= render "movies/head" %>
+<div class="wrap">
+  <div class="bar">
+    Sing_up
+  </div>
+  <div class="form">
+    <%= form_with model: @user, url: user_registration_path, method: :post, class: "form__top", local: true do |f| %>
+      <div class="form__top__main">
+        <%= f.label :nickname %>
+        <br/>
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "form__top__main__field" %>
+      </div>
+      <div class="form__top__main">
+        <%= f.label :email, class: "form__top__main__label" %>
+        <br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__top__main__field" %>
+      </div>
+      <div class="form__top__main">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>
+            (#{@minimum_password_length} characters minimum)
+          </em>
+        <% end %>
+        <br/>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form__top__main__field" %>
+      </div>
+      <div class="form__top__main">
+        <%= f.label :password_confirmation, class: "form__top__main__label" %>
+        <br/>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form__top__main__field" %>
+      </div>
+      <div class="form__top__main">
+        <%= f.submit "Sign up", class: "form__top__action__btn" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,41 @@
+<%= render "header" %>
+<div class="movie-show">
+  Chatroom
+  <div class="movie-show__title">
+    <%= @movie.title %>
+  </div>
+  <div class="movie-show__image">
+    <%= image_tag @movie.image.to_s, size: "300x200" %>
+  </div>
+  <div class="movie-show__body">
+    <%= @movie.body %>
+    <%= @user.nickname %>
+  </div>
+  <div class="comments">
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <div class="comments__box">
+          <div class="comments__box__body">
+            <%= comment.comment %>
+          </div>
+          <div class="comments__box__time">
+            <%= comment.created_at.strftime("%-m%d%-H%M") %>
+          </div>
+          <div class="comments__box__user">
+            <%= comment.user.nickname %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="comment">
+    <% if current_user %>
+      <%= form_with(model: [@movie, @comment], local: true) do |form| %>
+        <%= form.text_area :comment, placeholder: "Comment", class: "comment__area" %>
+        <%= form.submit "Submit", class: "comment__btn" %>
+      <% end %>
+    <% else %>
+      <p>Need login</p>
+    <% end %>
+  </div>
+</div>

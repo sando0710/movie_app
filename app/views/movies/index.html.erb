@@ -1,0 +1,33 @@
+<%= render "header" %>
+<div class="wrapper">
+  <div class="wrapper__movies">
+    <div class="wrapper__movies__box">
+
+      <% @movies.each do |movie| %>
+        <%= link_to movie_path(movie), class: "item-link c#{movie.category}" do %>
+          <%= image_tag movie.image.to_s, size: "300x200" %>
+          <div class="wrapper__movies__box__name">
+            <div class="wrapper__movies__box__name__ti">
+              Title :&nbsp;
+            </div>
+
+            <div class="wrapper__movies__box__name__title">
+              <%= movie.title %>
+            </div>
+          </div>
+
+          <div class="wrapper__movies__box__nick">
+            <div class="wrapper__movies__box__nick__ti">
+              Post_user :&nbsp;
+            </div>
+
+            <div class="wrapper__movies__box__nick__user">
+              <%= movie.user.nickname %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

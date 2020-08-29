@@ -1,0 +1,44 @@
+<div class="header">
+  <div class="header__top">
+    <%= image_tag "zatu.png", class: "top-img", size: "300x200"; %>
+    <div class="header__top__regi">
+      <% if user_signed_in? %>
+        <div class="item">
+          <%= current_user.nickname %>
+          <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'log_btn' %>
+        </div>
+        <div class="postMovie">
+          <%= link_to new_movie_path, class: 'log_btn' do %>
+            <div class="postMovie__text">
+              post
+            </div>
+            <div class="postMovie__icon">
+              <%= icon('fas', 'film', class: "icon") %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="item">
+          <%= link_to "login", new_user_session_path, class: 'log_btn' %>
+        </div>
+        <div class="item">
+          <%= link_to "sign_up", new_user_registration_path, class: 'log_btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="cat">
+    <%= link_to "category", "#", class: "cat__btn" %>
+    <div class="slide">
+      <p class="s_all">All</p>
+      <p class="s_cook">Cook</p>
+      <p class="s_movie">Movie</p>
+      <p class="s_gym">Gym</p>
+      <p class="s_music">Music</p>
+    </div>
+  </div>
+</div>
+
+
+
+
